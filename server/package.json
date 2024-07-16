@@ -2,10 +2,31 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main":"dist/functions/*.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "prisma": "^5.16.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3",
+    "azure-functions-core-tools": "^4.x",
+    "rimraf": "^5.0.0"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@marplex/hono-azurefunc-adapter": "^1.0.0",
+    "@prisma/client": "^5.16.2",
+    "dotenv": "^16.4.5",
+    "hono": "^4.4.13",
+    "nodemon": "^3.1.4"
+  }
 }
