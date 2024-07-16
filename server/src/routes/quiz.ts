@@ -1,4 +1,3 @@
-import { create } from "domain";
 import prisma from "../prismaClient";
 import { Hono } from "hono";
 
